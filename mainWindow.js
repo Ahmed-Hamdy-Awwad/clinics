@@ -1,8 +1,8 @@
 // Importing modules.
 const electron = require('electron');
-const server = require('./server');
-const url = require('url');
-const path = require('path');
+require('./server');
+// const url = require('url');
+// const path = require('path');
 
 // Creating menu bottoms.
 const mainMenuTemplate = [
@@ -35,7 +35,7 @@ app.on('ready', function(){
 		width: 1200,
 		height: 900,
 		darkTheme: true,
-		title: 'Accounting System'
+		title: 'Template'
 	});
 	
 	const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
