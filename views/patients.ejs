@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<!-- extending javascripts and other page basic seetings -->
+<% include partials/main.ejs %>
+
+<body>
+	<!-- extending navigation bar to this page -->
+	<% include partials/main.ejs %>
+
+	<!-- creating form to submit a new patient or update an old one -->
+	<div id="createUpdate"><br><br>
+		<center>
+			<form style="color:khaki">
+				Patient Name: <input id="name" name="patientName" type="text"><br><br>
+				Age: <input id="age" name="age" type="number"><br><br>
+				<label>Sex</label>
+				<input id="sex" name="sex" type="text">
+				<label>Address</label>
+				<input id="address" name="address" type="text"><br><br>
+				<label>Mobile Number</label>
+				<input id="mobile" name="mobile" type="text"><br><br>
+				<input id="submit" value="Submit" type="button">
+			</form>
+		</center>
+	</div><br><br>
+
+	<!-- Listing all patients -->
+	<center>
+	<div id="listPatients">
+		<h2>Patients</h2>
+		<table id='patientsTable' style="clear:both">
+			<tr>
+				<th>Patient Name</th>
+				<th>Age</th>
+				<th>Sex</th>
+				<th>Address</th>
+				<th>Mobile Number</th>
+			</tr>
+			<% for(var i=0; i < data.length; i++) { %>
+				<tr>
+					<td><%= data[i].patientName%></td>
+					<td><%= data[i].age%></td>
+					<td><%= data[i].sex%></td>
+					<td><%= data[i].address%></td>
+					<td><%= data[i].mobileNum%></td>
+				</tr>
+			<%} %>
+		</table>
+
+	</div>
+	</center>
+
+</body>
+</html>

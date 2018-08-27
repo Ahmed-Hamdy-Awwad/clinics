@@ -1,4 +1,6 @@
+module.exports;
 var home = require('./controllers/home');
+var patients = require('./controllers/patients');
 var express = require('express');
 var server = express();
 
@@ -9,6 +11,7 @@ server.listen(3000, function(){
 });
 
 home(server);
+patients(server)
 
 
   

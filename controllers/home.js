@@ -10,7 +10,7 @@ var con = db.createConnection({
 
   con.connect(function(err) {
 	if (err) throw err;
-	console.log("Connected to mysql!");
+	console.log("Home view connected to mysql.");
   });
 
 module.exports = function(server){
@@ -18,7 +18,7 @@ module.exports = function(server){
 		con.query("select * from (select bookings.id as bookingID, patients.patientName, services.name as service, employees.empName as doctor from bookings join patients on bookings.patientName = patients.id join services on bookings.service = services.id join employees on bookings.doctor = employees.id) as a join (select bookingNum, visitDate, payment from visits) as b on a.bookingID = b.bookingNum", function (err, data) {
 			if (err) throw err;
 			res.render('home', {data: data});
-			console.log('Data retrieved')
+			console.log('Home view data retrieved.')
 		  });
 		//con.end(function(){console.log('Connection ended')});
 	});

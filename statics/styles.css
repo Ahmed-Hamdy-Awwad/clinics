@@ -2,12 +2,20 @@ body {
 	background-color: black;
 }
 
+label {
+	color: khaki
+}
+
+input {
+	margin: 0px
+}
+
 table, th {
     border: 1px solid lightgreen;
 }
 
 table {
-	width: 100%;
+	width: 75%;
 }
 
 table tr:nth-child(even) {

@@ -1,23 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-</head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel='stylesheet' type="text/css" href="styles.css">
-<title>Medical Management System</title>
+<!-- extending javascripts and other page basic seetings -->
+<% include partials/main.ejs %>
 
 <body>
-	<!-- Side navigation -->
-	<div class="sidenav">
-		<a href="/home">Home</a>
-		<a href="#">Patients</a>
-		<a href="#">Bookings</a>
-		<a href="#">Visits</a>
-	</div>
+	<!-- extending navigation bar to this page -->
+	<% include partials/main.ejs %>
 
 	<!-- Page content -->
+	<center>
 	<div class="main">
 		<h2>Today's Bookings</h2>
 		<table id='homeTable'>
@@ -41,5 +32,6 @@
 			<%} %>
 		</table>
 	</div>
+	</center>
 </body>
 </html>
