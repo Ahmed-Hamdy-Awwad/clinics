@@ -7,22 +7,23 @@
 	<!-- extending navigation bar to this page -->
 	<% include partials/main.ejs %>
 
-	<!-- creating form to submit a new patient or update an old one -->
-	<div id="createUpdate"><br><br>
-		<center>
-			<form style="color:khaki">
-				Patient Name: <input id="name" name="patientName" type="text"><br><br>
-				Age: <input id="age" name="age" type="number"><br><br>
-				<label>Sex</label>
-				<input id="sex" name="sex" type="text">
-				<label>Address</label>
-				<input id="address" name="address" type="text"><br><br>
-				<label>Mobile Number</label>
-				<input id="mobile" name="mobile" type="text"><br><br>
-				<input id="submit" value="Submit" type="button">
-			</form>
-		</center>
-	</div><br><br>
+	<!-- creating form to submit new patient -->
+	<div id='createUpdatePatient'>
+		<form action="/patients" method="POST">
+			<!-- <input id="id" name="id" value=NULL type="number" style="display:none"> -->
+			<label>Patient's Name</label><br>
+			<input id='name' name="patientName"><br>
+			<label>Age</label><br>
+			<input id='age' name="age" type="number"><br>
+			<label>Sex</label><br>
+			<input id='sex' name="sex"><br>
+			<label>Address</label><br>
+			<input id='address' name="address"><br>
+			<label>Mobile Number</label><br>
+			<input id='mobilNum' name="mobileNum"><br>
+			<button type="submit" style="margin-left: 165px">Submit</button>
+		</form>
+	</div>
 
 	<!-- Listing all patients -->
 	<center>

@@ -3,11 +3,15 @@ body {
 }
 
 label {
-	color: khaki
+	color: khaki;
+	margin-left: 165px;
+	width: 10px;
 }
 
 input {
-	margin: 0px
+	margin-left: 165px;
+	width: auto;
+	color: black;
 }
 
 table, th {
