@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<!-- extending javascripts and other page basic seetings -->
+<% include partials/main.ejs %>
+
+<body>
+	<!-- extending navigation bar to this page -->
+	<% include partials/main.ejs %>
+
+	<!-- creating form to submit new booking -->
+	<div id='createUpdateBooking'>
+		<form action="/bookings" method="POST">
+			<label>Booking Date</label><br>
+			<input id='bdate' name="bdate" type="date"><br>
+			<label>Patient Name</label><br>
+			<input id='pName' name="pName"><br>
+			<label>Service</label><br>
+			<input id='service' name="service"><br>
+			<label>Doctor</label><br>
+			<input id='doctor' name="doctor"><br>
+			<label>Cost</label><br>
+			<input id='cost' name="cost"><br>
+			<label>Notes</label><br>
+			<input id='notes' name="notes"><br>
+			<label>Discount</label><br>
+			<input id='discount' name="discount"><br>
+			<label>Installments</label><br>
+			<input id='installments' name="installments"><br>
+			<button type="submit" style="margin-left: 165px">Submit</button>
+		</form>
+	</div>
+
+	<!-- Listing all bookings -->
+	<center>
+	<div id="listBookings">
+		<h2>Bookings</h2>
+		<table id='bookingsTable' style="clear:both">
+			<tr>
+				<th>Booking Date</th>
+				<th>Patient Name</th>
+				<th>Service</th>
+				<th>Doctor</th>
+				<th>Cost</th>
+				<th>Notes</th>
+				<th>Discount</th>
+				<th>Installments</th>
+			</tr>
+			<% for(var i=0; i < data.length; i++) { %>
+				<tr>
+					<td><%= data[i].bookingDate%></td>
+					<td><%= data[i].patientName%></td>
+					<td><%= data[i].serviceName%></td>
+					<td><%= data[i].empName%></td>
+					<td><%= data[i].cost%></td>
+					<td><%= data[i].notes%></td>
+					<td><%= data[i].discount%></td>
+					<td><%= data[i].installments%></td>
+				</tr>
+			<%} %>
+		</table>
+
+	</div>
+	</center>
+
+</body>
+</html>

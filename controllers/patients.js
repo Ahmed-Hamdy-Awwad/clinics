@@ -27,9 +27,9 @@ var con = db.createConnection({
 
 	server.post('/patients', urlencoderParser, function(req, res){
 		data = req.body;
-		con.query('INSERT INTO patients SET ?', data, function (error, results) {
+		con.query('INSERT INTO patients SET ?', data, function (error) {
 			if (error) throw error;
-			console.log(results);
+			console.log('Patient\'s data created');
 		  });
 		  con.query("select patientName, age, sex, address, mobileNum from patients", function (err, data) {
 			if (err) throw err;
