@@ -13,11 +13,23 @@
 			<label>Booking Date</label><br>
 			<input id='bdate' name="bdate" type="date"><br>
 			<label>Patient Name</label><br>
-			<input id='pName' name="pName"><br>
+			<select name="patients" id="patients">
+				<% for(var i=0; i < data[1].length; i++) { %>
+					<option value="<%= data[1][i].id%>"><%= data[1][i].patientName%></option>
+					<%} %>
+			</select><br>
 			<label>Service</label><br>
-			<input id='service' name="service"><br>
+			<select name="services" id="selectServices">
+				<% for(var i=0; i < data[2].length; i++) { %>
+					<option id="optService" data-cost="10" value="<%= data[2][i].id%>"><%= data[2][i].name%></option>
+					<%} %>
+			</select><br>
 			<label>Doctor</label><br>
-			<input id='doctor' name="doctor"><br>
+			<select name="doctors" id="doctors">
+				<% for(var i=0; i < data[3].length; i++) { %>
+					<option value="<%= data[3][i].id%>"><%= data[3][i].empName%></option>
+					<%} %>
+			</select><br>
 			<label>Cost</label><br>
 			<input id='cost' name="cost"><br>
 			<label>Notes</label><br>
@@ -45,22 +57,33 @@
 				<th>Discount</th>
 				<th>Installments</th>
 			</tr>
-			<% for(var i=0; i < data.length; i++) { %>
+			<% for(var i=0; i < data[0].length; i++) { %>
 				<tr>
-					<td><%= data[i].bookingDate%></td>
-					<td><%= data[i].patientName%></td>
-					<td><%= data[i].serviceName%></td>
-					<td><%= data[i].empName%></td>
-					<td><%= data[i].cost%></td>
-					<td><%= data[i].notes%></td>
-					<td><%= data[i].discount%></td>
-					<td><%= data[i].installments%></td>
+					<td><%= data[0][i].bookingDate%></td>
+					<td><%= data[0][i].patientName%></td>
+					<td><%= data[0][i].serviceName%></td>
+					<td><%= data[0][i].empName%></td>
+					<td><%= data[0][i].cost%></td>
+					<td><%= data[0][i].notes%></td>
+					<td><%= data[0][i].discount%></td>
+					<td><%= data[0][i].installments%></td>
 				</tr>
 			<%} %>
 		</table>
 
 	</div>
 	</center>
+
+	<script>
+		// Populating the cost input field dynamically upon service selection
+		$(document).ready(function(){
+			$('#selectServices').on('change', function(){
+				myVal = $(this).attr('data-cost');
+				$('#cost').innerHTML = myVal;
+				console.log(myVal);
+			})
+		})
+		</script>
 
 </body>
 </html>
