@@ -14,30 +14,33 @@
 			<input id='bdate' name="bdate" type="date"><br>
 			<label>Patient Name</label><br>
 			<select name="patients" id="patients">
+				<option>Select a patient name</option>
 				<% for(var i=0; i < data[1].length; i++) { %>
 					<option value="<%= data[1][i].id%>"><%= data[1][i].patientName%></option>
 					<%} %>
 			</select><br>
 			<label>Service</label><br>
 			<select name="services" id="selectServices">
+				<option>Select a service</option>
 				<% for(var i=0; i < data[2].length; i++) { %>
 					<option id="optService" data-cost="<%= data[2][i].cost%>" value="<%= data[2][i].id%>"><%= data[2][i].name%></option>
 					<%} %>
 			</select><br>
 			<label>Doctor</label><br>
 			<select name="doctors" id="doctors">
+				<option>Select a doctor</option>
 				<% for(var i=0; i < data[3].length; i++) { %>
 					<option value="<%= data[3][i].id%>"><%= data[3][i].empName%></option>
 					<%} %>
 			</select><br>
 			<label>Cost</label><br>
-			<input id='cost' name="cost"><br>
+			<input id='cost' name="cost" disabled><br>
 			<label>Notes</label><br>
 			<input id='notes' name="notes"><br>
 			<label>Discount</label><br>
-			<input id='discount' name="discount"><br>
+			<input id='discount' name="discount" type="number" value="0"><br>
 			<label>Installments</label><br>
-			<input id='installments' name="installments"><br>
+			<input id='installments' name="installments" type="number" value="0"><br>
 			<button type="submit" style="margin-left: 165px">Submit</button>
 		</form>
 	</div>
@@ -78,12 +81,12 @@
 		// Populating the cost input field dynamically upon service selection
 		$(document).ready(function(){
 			$('#selectServices').on('change', function(){
-				selElement = $('#selectServices :selected').attr('data-cost');
-				$('#cost').val(selElement);
-				console.log(selElement);
+				myVal = $('#selectServices :selected').attr('data-cost');
+				$('#cost').val(myVal);
+				console.log(myVal);
 			})
 		})
-		</script>
+	</script>
 
 </body>
 </html>
