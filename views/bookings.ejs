@@ -21,7 +21,7 @@
 			<label>Service</label><br>
 			<select name="services" id="selectServices">
 				<% for(var i=0; i < data[2].length; i++) { %>
-					<option id="optService" data-cost="10" value="<%= data[2][i].id%>"><%= data[2][i].name%></option>
+					<option id="optService" data-cost="<%= data[2][i].cost%>" value="<%= data[2][i].id%>"><%= data[2][i].name%></option>
 					<%} %>
 			</select><br>
 			<label>Doctor</label><br>
@@ -78,9 +78,9 @@
 		// Populating the cost input field dynamically upon service selection
 		$(document).ready(function(){
 			$('#selectServices').on('change', function(){
-				myVal = $(this).attr('data-cost');
-				$('#cost').innerHTML = myVal;
-				console.log(myVal);
+				selElement = $('#selectServices :selected').attr('data-cost');
+				$('#cost').val(selElement);
+				console.log(selElement);
 			})
 		})
 		</script>
