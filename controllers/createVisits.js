@@ -12,27 +12,23 @@ var con = db.createConnection({
 
   con.connect(function(err) {
 	if (err) throw err;
-	console.log("Visits' view connected to mysql.");
+	console.log("Visits Creation' view connected to mysql.");
   });
 
 module.exports = function(server){
 
-	// query1 = ""
-
 	server.get('/createVisit', function(req, res){
 		id = req.query;
-		console.log(id);
 		res.render('createVisit', {"data": id});
 		});
 
 	server.post('/createVisit', urlencoderParser, function(req, res){
 		data = req.body;
-		// console.log(data);
+		console.log(data);
 		con.query('INSERT INTO visits SET ?', data, function (error) {
 			if (error) throw error;
 			console.log('Visit\'s data created');
 			});
-		res.redirect('bookings');
-		console.log('bookings\' data retrieved.')
+		res.redirect('visits');
 	});
 };

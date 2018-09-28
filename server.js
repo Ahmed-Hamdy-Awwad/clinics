@@ -1,6 +1,7 @@
 var home = require('./controllers/home');
 var patients = require('./controllers/patients');
 var bookings = require('./controllers/bookings');
+var visits = require('./controllers/visits');
 var createVisits = require('./controllers/createVisits');
 var express = require('express');
 var server = express();
@@ -14,6 +15,7 @@ server.listen(3000, function(){
 home(server);
 patients(server);
 bookings(server);
+visits(server);
 createVisits(server);
 
 

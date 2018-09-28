@@ -10,7 +10,7 @@
 	<!-- creating form to submit new service -->
 	<form id="newService" name="newService" method="POST" action="">
 		<label for="bookingID">Booking ID</label>
-		<input type="number" name="bookingNum" style="margin-left:20px" disabled value="<%= data.id%>">
+		<input id="bookingNum" type="number" name="bookingNum" value="<%= data.id%>" style="margin-left:20px" readonly>
 		<label for="visitDate" style="margin-left:50px">Visit Date</label>
 		<input id="visitDate" name="visitDate" type="date" style="margin-left:20px">
 		<label for="payment" style="margin-left:50px">Payment</label>
