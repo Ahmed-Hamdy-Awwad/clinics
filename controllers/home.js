@@ -5,7 +5,7 @@ var con = db.createConnection({
 	user: "root",
 	password: "123456",
 	database: "clinics",
-	port: 3310
+	port: 3306
   });
 
   con.connect(function(err) {

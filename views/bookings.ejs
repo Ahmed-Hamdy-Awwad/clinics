@@ -11,23 +11,23 @@
 	<div id='createUpdateBooking'>
 		<form action="/bookings" method="POST">
 			<label>Booking Date</label><br>
-			<input id='bdate' name="bdate" type="date"><br>
+			<input id='bdate' name="bookingDate" type="date"><br>
 			<label>Patient Name</label><br>
-			<select name="patients" id="patients">
+			<select name="patientName" id="patients">
 				<option>Select a patient name</option>
 				<% for(var i=0; i < data[1].length; i++) { %>
 					<option value="<%= data[1][i].id%>"><%= data[1][i].patientName%></option>
 					<%} %>
 			</select><br>
 			<label>Service</label><br>
-			<select name="services" id="selectServices">
+			<select name="service" id="selectServices">
 				<option>Select a service</option>
 				<% for(var i=0; i < data[2].length; i++) { %>
-					<option id="optService" data-cost="<%= data[2][i].cost%>" value="<%= data[2][i].id%>"><%= data[2][i].name%></option>
+					<option id="optService" name="service" data-cost="<%= data[2][i].cost%>" value="<%= data[2][i].id%>"><%= data[2][i].name%></option>
 					<%} %>
 			</select><br>
 			<label>Doctor</label><br>
-			<select name="doctors" id="doctors">
+			<select name="doctor" id="doctors">
 				<option>Select a doctor</option>
 				<% for(var i=0; i < data[3].length; i++) { %>
 					<option value="<%= data[3][i].id%>"><%= data[3][i].empName%></option>
@@ -51,6 +51,7 @@
 		<h2>Bookings</h2>
 		<table id='bookingsTable' style="clear:both">
 			<tr>
+				<th>Booking ID</th>
 				<th>Booking Date</th>
 				<th>Patient Name</th>
 				<th>Service</th>
@@ -62,6 +63,7 @@
 			</tr>
 			<% for(var i=0; i < data[0].length; i++) { %>
 				<tr>
+					<td><a href="/createVisit?id=<%= data[0][i].id%>"><%= data[0][i].id%></a></td>
 					<td><%= data[0][i].bookingDate%></td>
 					<td><%= data[0][i].patientName%></td>
 					<td><%= data[0][i].serviceName%></td>
