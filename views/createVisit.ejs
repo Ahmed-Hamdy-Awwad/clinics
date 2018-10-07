@@ -7,8 +7,8 @@
 	<!-- extending navigation bar to this page -->
 	<% include partials/main.ejs %>
 
-	<!-- creating form to submit new service -->
-	<form id="newService" name="newService" method="POST" action="">
+	<!-- creating form to submit new visit -->
+	<form id="newVisit" name="newVisit" method="POST" action="/createVisit">
 		<label for="bookingID">Booking ID</label>
 		<input id="bookingNum" type="number" name="bookingNum" value="<%= data.id%>" style="margin-left:20px" readonly>
 		<label for="visitDate" style="margin-left:50px">Visit Date</label>

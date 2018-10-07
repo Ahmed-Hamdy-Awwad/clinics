@@ -1,3 +1,4 @@
+var moment = require('moment');
 var db = require('mysql');
 
 var con = db.createConnection({
@@ -15,9 +16,9 @@ var con = db.createConnection({
 
 module.exports = function(server){
 	server.get('/visits', function(req, res){
-		con.query("select * from (select bookings.id as bookingID, patients.patientName, services.name as service, employees.empName as doctor from bookings join patients on bookings.patientName = patients.id join services on bookings.service = services.id join employees on bookings.doctor = employees.id) as a join (select bookingNum, visitDate, payment from visits) as b on a.bookingID = b.bookingNum", function (err, data) {
+		con.query("select * from (select bookings.id as bookingID, patients.patientName, services.name as service, employees.empName as doctor from bookings join patients on bookings.patientName = patients.id join services on bookings.service = services.id join employees on bookings.doctor = employees.id) as a join (select id, bookingNum, visitDate, payment from visits) as b on a.bookingID = b.bookingNum where visitDate >= curdate()", function (err, data) {
 			if (err) throw err;
-			res.render('visits', {data: data});
+			res.render('visits', {data: data, moment: moment});
 			console.log('Visits view data retrieved.')
 		  });
 		//con.end(function(){console.log('Connection ended')});

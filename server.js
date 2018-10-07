@@ -3,6 +3,7 @@ var patients = require('./controllers/patients');
 var bookings = require('./controllers/bookings');
 var visits = require('./controllers/visits');
 var createVisits = require('./controllers/createVisits');
+var createTrx = require('./controllers/createTrx');
 var express = require('express');
 var server = express();
 
@@ -17,6 +18,6 @@ patients(server);
 bookings(server);
 visits(server);
 createVisits(server);
-
+createTrx(server);
 
   

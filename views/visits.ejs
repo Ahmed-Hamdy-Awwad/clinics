@@ -22,12 +22,12 @@
 			</tr>
 			<% for(var i=0; i < data.length; i++) { %>
 				<tr>
-					<td><%= data[i].bookingID%></td>
+					<td><a href="/createTrx?type=1&cost=<%= data[i].payment%>&visit=<%= data[i].id%>&trxDate=<%= moment(data[i].visitDate).format('YYYY,MM,DD')%>"><%= data[i].bookingID%></a></td>
 					<td><%= data[i].patientName%></td>
 					<td><%= data[i].service%></td>
 					<td><%= data[i].doctor%></td>
 					<td><%= data[i].payment%></td>
-					<td><%= data[i].visitDate%></td>
+					<td id="dates"><%= moment(data[i].visitDate).format('YYYY,MM,DD')%></td>
 				</tr>
 			<%} %>
 		</table>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<!-- extending javascripts and other page basic seetings -->
+<% include partials/main.ejs %>
+
+<body>
+	<!-- extending navigation bar to this page -->
+	<% include partials/main.ejs %>
+
+	<!-- creating form to submit new transaction -->
+	<form id="newService" name="newService" method="POST" action="/createTrx">
+		<label for="visitID">Visit ID</label>
+		<input id="visitID" type="number" name="visit" value="<%= data.id%>" style="margin-left:20px" readonly>
+		<label for="visitDate" style="margin-left:50px">Visit Date</label>
+		<input id="visitDate" name="visitDate" type="date" style="margin-left:20px">
+		<label for="payment" style="margin-left:50px">Payment</label>
+		<input id="payment" name="payment" type="number" style="margin-left:20px">
+		<button type="submit" style="margin-left: 50px">Submit</button>
+	</form>
+
+</body>
+</html>
