@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+	<center>
+	<h1>إيصال تقديم خدمة</h1>
+	<h2><%= data[0].id%></h2><br>
+	<div style="width: auto; border: solid black"><br>
+		<label style="margin-right:50px">التاريخ</label>
+		<label style="margin-right:20px"><%= data[0].trxDate%></label>
+		<label style="margin-right:50px">اسم المريض</label>
+		<label style="margin-right:20px"><%= data[0].patientName%></label>
+		<label style="margin-right:50px">السن</label>
+		<label style="margin-right:20px"><%= data[0].age%></label><br><br><br>
+		<label style="margin-right:50px">الخدمة</label>
+		<label style="margin-right:20px"><%= data[0].service%></label>
+		<label style="margin-right:50px">المبلغ المدفوع</label>
+		<label style="margin-right:20px"><%= data[0].payment%></label>
+		<label style="margin-right:50px">الطبيب المعالج</label>
+		<label style="margin-right:20px"><%= data[0].doctor%></label><br><br>
+	</div>
+	</center>
+
+</body>
+</html>
