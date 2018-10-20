@@ -27,7 +27,7 @@
 					<td><%= data[i].service%></td>
 					<td><%= data[i].doctor%></td>
 					<td><%= data[i].payment%></td>
-					<td id="dates"><%= moment(data[i].visitDate).format('YYYY,MM,DD')%></td>
+					<td id="dates"><%= moment(data[i].visitDate).format('YYYY-MM-DD')%></td>
 				</tr>
 			<%} %>
 		</table>

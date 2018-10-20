@@ -1,24 +1,42 @@
 <!DOCTYPE html>
 <html>
+		<title>Medical Management System</title>
 <body>
 
 	<center>
 	<h1>إيصال تقديم خدمة</h1>
 	<h2><%= data[0].id%></h2><br>
 	<div style="width: auto; border: solid black"><br>
-		<label style="margin-right:50px">التاريخ</label>
-		<label style="margin-right:20px"><%= data[0].trxDate%></label>
-		<label style="margin-right:50px">اسم المريض</label>
-		<label style="margin-right:20px"><%= data[0].patientName%></label>
-		<label style="margin-right:50px">السن</label>
-		<label style="margin-right:20px"><%= data[0].age%></label><br><br><br>
-		<label style="margin-right:50px">الخدمة</label>
-		<label style="margin-right:20px"><%= data[0].service%></label>
-		<label style="margin-right:50px">المبلغ المدفوع</label>
-		<label style="margin-right:20px"><%= data[0].payment%></label>
-		<label style="margin-right:50px">الطبيب المعالج</label>
-		<label style="margin-right:20px"><%= data[0].doctor%></label><br><br>
-	</div>
+		<label style="margin-left:50px">Date</label>
+		<label style="margin-left:20px"><%= moment(data[0].trxDate).format('YYYY-MM-DD')%></label>
+		<label style="margin-left:50px">Name</label>
+		<label style="margin-left:20px"><%= data[0].patientName%></label>
+		<label style="margin-left:50px">Age</label>
+		<label style="margin-left:20px"><%= data[0].age%></label>
+		<br><br><br>
+		<label style="margin-left:50px">Service</label>
+		<label style="margin-left:20px"><%= data[0].service%></label>
+		<label style="margin-left:50px">Paid Amount</label>
+		<label style="margin-left:20px"><%= data[0].payment%></label>
+		<label style="margin-left:50px">Doctor</label>
+		<label style="margin-left:20px"><%= data[0].doctor%></label><br><br>
+	</div><br><br><br>
+	<h1>إيصال تقديم خدمة</h1>
+	<h2><%= data[0].id%></h2><br>
+	<div style="width: auto; border: solid black"><br>
+		<label style="margin-left:50px">Date</label>
+		<label style="margin-left:20px"><%= moment(data[0].trxDate).format('YYYY-MM-DD')%></label>
+		<label style="margin-left:50px">Name</label>
+		<label style="margin-left:20px"><%= data[0].patientName%></label>
+		<label style="margin-left:50px">Age</label>
+		<label style="margin-left:20px"><%= data[0].age%></label>
+		<br><br><br>
+		<label style="margin-left:50px">Service</label>
+		<label style="margin-left:20px"><%= data[0].service%></label>
+		<label style="margin-left:50px">Paid Amount</label>
+		<label style="margin-left:20px"><%= data[0].payment%></label>
+		<label style="margin-left:50px">Doctor</label>
+		<label style="margin-left:20px"><%= data[0].doctor%></label><br><br>
 	</center>
 
 </body>

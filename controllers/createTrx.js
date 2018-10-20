@@ -1,5 +1,6 @@
 var bodyparser = require('body-parser');
 var urlencoderParser = bodyparser.urlencoded({extended: false});
+var moment = require('moment');
 var db = require('mysql');
 
 var con = db.createConnection({
@@ -26,7 +27,7 @@ module.exports = function(server){
 		con.query("select * from (select bookings.id as bookingID, patients.patientName, patients.age, services.name as service, employees.empName as doctor from bookings join patients on bookings.patientName = patients.id join services on bookings.service = services.id join employees on bookings.doctor = employees.id) as a join (select bookingNum, payment, visits.id as visitID, transactions.id, transactions.trxDate from visits join transactions on visits.id = transactions.visit) as b on a.bookingID = b.bookingNum where b.visitID = ?", data.visit, function (err, data) {
 			if (err) throw err;
 			console.log(data)
-			res.render('invoice', {data: data});
+			res.render('invoice', {data: data, moment:moment});
 			});
 		// res.render('invoice')
 		});
